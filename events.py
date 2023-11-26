@@ -5,7 +5,6 @@ import pytz
 import requests
 import re
 from config import *
-from traceback import print_exc
 
 URL = "https://courses.uit.edu.vn"
 SESSKEY = ""
