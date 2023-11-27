@@ -14,6 +14,7 @@ Lấy deadline trong vòng 7 ngày tới từ Moodle API rồi thông báo. App 
 
 ## Cách dùng
 - Cài đặt Python và pip.
+- Tạo file `config.py` theo mẫu của file `config.py.example`, cụ thể là sẽ sửa `USERNAME` và `PASSWORD` theo tài khoản của mình.
 - Cài đặt các gói 
     ```
     pip install -r requirements.txt
