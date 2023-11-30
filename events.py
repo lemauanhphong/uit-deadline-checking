@@ -1,3 +1,4 @@
+import html
 import time
 import apprise
 from datetime import datetime, timedelta
@@ -5,6 +6,7 @@ import pytz
 import requests
 import re
 from config import *
+from traceback import print_exc
 
 URL = "https://courses.uit.edu.vn"
 SESSKEY = ""
@@ -54,7 +56,9 @@ def get_calendar():
         for event in events:
             noti = f"TODAY{'' if i == 0 else f' + {i}'}: "
             noti += f" {event['name']} - {datetime.fromtimestamp(event['timestart'])}"
-            apobj.notify(body=noti, title=f"UIT - Deadline: {event['course']['fullname']}")
+            noti = html.unescape(noti)
+            title = html.unescape(f"UIT - Deadline: {event['course']['fullname']}")
+            apobj.notify(body=noti, title=title)
         date += timedelta(days=1)
 
 def logout():
